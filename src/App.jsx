@@ -1,10 +1,12 @@
+import { Container } from "@mui/material"
+import Header from "./components/Header/Header"
 
-function App() {
+const App = () => {
   return (
-    <div>
-    Здравствуйте
-    </div>
-  );
+    <Container>
+      <Header />
+    </Container>
+  )
 }
 
-export default App;
+export default App
