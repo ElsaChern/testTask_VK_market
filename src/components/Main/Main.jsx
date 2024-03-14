@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material"
 import { MainContainer, Title } from "./slyled"
 import ProductList from "../ProductList/ProductList"
+import Total from "../Total/Total"
 
 const MainComponent = () => {
   return (
@@ -12,7 +13,7 @@ const MainComponent = () => {
             <ProductList />
           </Grid>
           <Grid item xs={1}>
-            {/*<CardContainer>Sum</CardContainer>*/}
+            <Total />
           </Grid>
         </Grid>
       </MainContainer>

@@ -38,10 +38,6 @@ const ProductList = () => {
     )
   }
 
-  if (isLoading) {
-    return <LoadingWrapper>Загрузка</LoadingWrapper>
-  }
-
   return (
     <CardContainer>
       {isLoading ? (
