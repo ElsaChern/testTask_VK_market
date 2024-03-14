@@ -1,11 +1,13 @@
-import { Container } from "@mui/material"
+import { Box, Container } from "@mui/material"
 import Header from "./components/Header/Header"
+import MainComponent from "./components/Main/Main"
 
 const App = () => {
   return (
-    <Container>
+    <>
       <Header />
-    </Container>
+      <MainComponent />
+    </>
   )
 }
 
