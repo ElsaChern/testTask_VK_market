@@ -3,7 +3,7 @@ import { Box, Card } from "@mui/material"
 
 const CardContainer = styled(Card)({
   borderRadius: "10px",
-  padding: "15px",
+  padding: "0 15px",
 })
 
 const LoadingWrapper = styled(Box)({

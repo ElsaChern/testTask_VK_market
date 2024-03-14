@@ -5,7 +5,7 @@ const HeaderContainer = styled(AppBar)({
   width: "100%",
   alignItems: "center",
   padding: "20px",
-  backgroundColor: "#42424269",
+  //backgroundColor: "#42424269",
 })
 
 export default HeaderContainer

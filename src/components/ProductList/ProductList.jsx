@@ -8,6 +8,7 @@ import {
   setProductFailure,
 } from "../../store/slices/ProductListSlice"
 import { Alert, AlertTitle } from "@mui/material"
+import Product from "../Product/Product"
 
 const ProductList = () => {
   const dispatch = useDispatch()
@@ -43,9 +44,13 @@ const ProductList = () => {
 
   return (
     <CardContainer>
-      {products.map((product) => {
-        return <p key={product.id}>{product.title}</p>
-      })}
+      {isLoading ? (
+        <LoadingWrapper>Загрузка</LoadingWrapper>
+      ) : (
+        products.map((product) => {
+          return <Product key={product.id} product={product} />
+        })
+      )}
     </CardContainer>
   )
 }

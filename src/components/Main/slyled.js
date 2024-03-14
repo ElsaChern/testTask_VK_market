@@ -7,7 +7,7 @@ const Title = styled(Typography)({
 
 const MainContainer = styled(Box)({
   display: "flex",
-  padding: "15px",
+  padding: "0 15px",
 })
 
 export { Title, MainContainer }
