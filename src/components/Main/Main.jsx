@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material"
-import { MainContainer, CardContainer, Title } from "./slyled"
+import { MainContainer, Title } from "./slyled"
+import ProductList from "../ProductList/ProductList"
 
 const MainComponent = () => {
   return (
@@ -8,10 +9,10 @@ const MainComponent = () => {
       <MainContainer>
         <Grid container columns={4} spacing={1}>
           <Grid item xs={3}>
-            <CardContainer>Cart</CardContainer>
+            <ProductList />
           </Grid>
           <Grid item xs={1}>
-            <CardContainer>Sum</CardContainer>
+            {/*<CardContainer>Sum</CardContainer>*/}
           </Grid>
         </Grid>
       </MainContainer>
