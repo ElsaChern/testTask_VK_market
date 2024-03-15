@@ -7,7 +7,6 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material"
-import { hover } from "@testing-library/user-event/dist/hover"
 
 const ProductCard = styled(Card)(({ theme }) => ({
   display: "flex",
@@ -56,6 +55,7 @@ const CounterGroup = styled(ButtonGroup)({
 })
 
 const CounterButton = styled(Button)({
+  border: "none",
   backgroundColor: "#ffffff",
   ":disabled": {
     color: "#ffffff",
