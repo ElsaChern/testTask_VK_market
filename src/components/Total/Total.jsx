@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material"
 import {
-  CheckedProducts,
-  CheckedProductsText,
-  CheckedProductsTitle,
-  CheckedProductsWrapper,
+  CartProducts,
+  CartProductsText,
+  CartProductsTitle,
+  CartProductsWrapper,
   TotalWrapper,
 } from "./styles"
 import { useSelector } from "react-redux"
@@ -16,23 +16,19 @@ const Total = () => {
       <Typography variant="h6">
         Итого: {Math.abs(totalPrice.toFixed(2))} руб.
       </Typography>
-      <CheckedProductsWrapper>
+      <CartProductsWrapper>
         {productsInCart.map((product) => {
-          if (product.quantity !== 0) {
-            return (
-              <CheckedProducts key={product.id}>
-                <CheckedProductsTitle>{product.title}</CheckedProductsTitle>
-                <CheckedProductsText>
-                  {product.quantity} шт.
-                </CheckedProductsText>
-                <CheckedProductsText>
-                  {(product.price * product.quantity).toFixed(2)} руб.
-                </CheckedProductsText>
-              </CheckedProducts>
-            )
-          }
+          return (
+            <CartProducts key={product.id}>
+              <CartProductsTitle>{product.title}</CartProductsTitle>
+              <CartProductsText>{product.quantity} шт.</CartProductsText>
+              <CartProductsText>
+                {(product.price * product.quantity).toFixed(2)} руб.
+              </CartProductsText>
+            </CartProducts>
+          )
         })}
-      </CheckedProductsWrapper>
+      </CartProductsWrapper>
     </TotalWrapper>
   )
 }

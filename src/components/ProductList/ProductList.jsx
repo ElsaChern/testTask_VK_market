@@ -14,14 +14,16 @@ import Error from "../Error/Error"
 const ProductList = () => {
   const dispatch = useDispatch()
 
-  const { products, error, isLoading } = useSelector((state) => state.products)
+  const { products, isError, isLoading } = useSelector(
+    (state) => state.products,
+  )
 
   useEffect(() => {
     const getProducts = async () => {
       dispatch(setProductPending())
       try {
-        const prodResult = await fetchProducts()
-        dispatch(setProductSuccess(prodResult))
+        const result = await fetchProducts()
+        dispatch(setProductSuccess(result))
       } catch (e) {
         dispatch(setProductFailure())
       }
@@ -29,7 +31,7 @@ const ProductList = () => {
     getProducts()
   }, [])
 
-  if (error) {
+  if (isError) {
     return <Error />
   }
 

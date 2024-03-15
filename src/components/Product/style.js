@@ -34,9 +34,22 @@ const ProductInfo = styled(Box)({
   flexWrap: "wrap",
 })
 
+const Title = styled(Typography)({
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  WebkitLineClamp: "1",
+  WebkitBoxOrient: "vertical",
+})
+
 const Description = styled(Typography)({
   fontSize: "12px",
   fontStyle: "italic",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  WebkitLineClamp: "2",
+  WebkitBoxOrient: "vertical",
 })
 
 const ProductCounter = styled(Box)({
@@ -69,6 +82,7 @@ export {
   ProductCard,
   CartImg,
   ProductInfo,
+  Title,
   Description,
   CounterGroup,
   CounterButton,
