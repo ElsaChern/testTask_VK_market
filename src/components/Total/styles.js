@@ -5,7 +5,6 @@ const TotalWrapper = styled(Card)({
   display: "flex",
   padding: "10px",
   borderRadius: "10px",
-  minHeight: "400px",
   flexDirection: "column",
 })
 

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CardContainer, LoadingWrapper } from "./styled"
+import { CardContainer } from "./styled"
 import fetchProducts from "../../api/fetchProducts"
 import { useEffect } from "react"
 import {
@@ -7,8 +7,9 @@ import {
   setProductSuccess,
   setProductFailure,
 } from "../../store/slices/ProductListSlice"
-import { Alert, AlertTitle } from "@mui/material"
 import Product from "../Product/Product"
+import Loader from "../Loader/Loader"
+import Error from "../Error/Error"
 
 const ProductList = () => {
   const dispatch = useDispatch()
@@ -26,27 +27,21 @@ const ProductList = () => {
       }
     }
     getProducts()
-    // eslint-disable-next-line
   }, [])
 
   if (error) {
-    return (
-      <Alert severity="error" variant="outlined">
-        <AlertTitle>Ошибка</AlertTitle>
-        Что-то пошло не так. Пожалуйста, попробуйте еще раз позднее
-      </Alert>
-    )
+    return <Error />
+  }
+
+  if (isLoading) {
+    return <Loader />
   }
 
   return (
     <CardContainer>
-      {isLoading ? (
-        <LoadingWrapper>Загрузка</LoadingWrapper>
-      ) : (
-        products.map((product) => {
-          return <Product key={product.id} product={product} />
-        })
-      )}
+      {products.map((product) => {
+        return <Product key={product.id} product={product} />
+      })}
     </CardContainer>
   )
 }
