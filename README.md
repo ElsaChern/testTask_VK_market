@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Создать React-приложение для корзины товаров магазина на основе компонентов-функций.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Требования
 
-## Available Scripts
+Макет из 2 колонок шириной 3:1 (применить дизайн-систему или flexbox/grid в css).
 
-In the project directory, you can run:
+### Левая колонка
 
-### `npm start`
+Вывод вертикального списка карточек товаров в корзине.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Карточка товара:
+Фото товара, название (под ним описание), количество, стоимость.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Действия с товаром:
+- Изменить количество (кнопка с иконкой +/- и ограничением - минимум 1 товар, максимум 10)
+- Удалить (кнопка с иконкой корзины).
 
-### `npm test`
+  
+Для хранения состояния приложения желательно  применять стейт-менеджер.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Правая колонка
 
-### `npm run build`
+Вывод текста "Итого: <сумма> руб." и итоговой суммы заказа по всем товарам, учитывая количества каждого товара в корзине.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Данные
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Данные для корзины можно сделать вручную, (достаточно несколько товаров):
+В данном проекте используется данные взятые с [https://fakestoreapi.com/products](https://fakestoreapi.com/products)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Будет плюсом
 
-### `npm run eject`
+- Применение стейт-менеджера.
+- Запрос данных из API (можно и из файла, главное чтобы была асинхронная работа и работа с стейт-менеджером).
+- Применение TypeScript.
+- Применение css (flexbox/grid).
+- Аккуратный и лаконичный код с хорошей декомпозицией.
+- Применение компонент из дизайн-системы, например VKUI / Ant Design / Material UI.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Запуск
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Для запуска проекта используйте ```npm i``` а затем ```npm start```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
