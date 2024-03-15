@@ -10,13 +10,13 @@ import {
   ProductCard,
   ProductCounter,
   ProductInfo,
+  Title,
 } from "./style"
 import {
   decreaseAmount,
   deleteProduct,
-  increaseProductAmount,
+  increaseAmount,
 } from "../../store/slices/ProductListSlice"
-import { cutFunction } from "../../helpers/cutFunc"
 
 const Product = ({ product }) => {
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ const Product = ({ product }) => {
 
   const handleIncrement = () => {
     setCounter(counter + 1)
-    dispatch(increaseProductAmount(product))
+    dispatch(increaseAmount(product))
   }
 
   const handleDecrement = () => {
@@ -40,11 +40,9 @@ const Product = ({ product }) => {
     <ProductCard>
       <CartImg component="img" alt="product image" image={product.image} />
       <ProductInfo>
-        <Typography variant="subtitle1">
-          {cutFunction(product.title, 40)}
-        </Typography>
+        <Title variant="subtitle1">{product.title}</Title>
         <Description color="text.secondary" variant="body2">
-          {cutFunction(product.description, 100)}
+          {product.description}
         </Description>
       </ProductInfo>
 
@@ -64,10 +62,8 @@ const Product = ({ product }) => {
         </CounterGroup>
       </ProductCounter>
 
-      <Typography width={100} variant="subtitle1">
-        {product.price} руб.
-      </Typography>
-      <Button width={100} onClick={handleDelete}>
+      <Typography variant="subtitle1">{product.price} руб.</Typography>
+      <Button onClick={handleDelete}>
         <DeleteOutlineIcon fontSize="small" sx={{ color: "#ffffff" }} />
       </Button>
     </ProductCard>

@@ -4,7 +4,7 @@ const ProductListSlice = createSlice({
   name: "products",
   initialState: {
     products: [],
-    error: false,
+    isError: false,
     isLoading: false,
     productsInCart: [],
     totalPrice: 0,
@@ -22,6 +22,7 @@ const ProductListSlice = createSlice({
         ...product,
         quantity: 1,
       }))
+
       const priceArr = state.productsInCart.map((product) => product.price)
       state.totalPrice = priceArr.reduce(
         (accumulator, currentValue) => accumulator + currentValue,
@@ -31,27 +32,32 @@ const ProductListSlice = createSlice({
 
     setProductFailure(state) {
       state.isLoading = false
-      state.error = true
+      state.isError = true
     },
 
-    increaseProductAmount: (state, action) => {
+    increaseAmount: (state, action) => {
       const cartProduct = state.productsInCart.find(
         (item) => item.id === action.payload.id,
       )
+
       cartProduct.quantity++
       state.totalPrice += cartProduct.price
     },
+
     decreaseAmount: (state, action) => {
       const cartProduct = state.productsInCart.find(
         (item) => item.id === action.payload.id,
       )
+
       cartProduct.quantity--
       state.totalPrice -= cartProduct.price
     },
+
     deleteProduct: (state, action) => {
       const cartProduct = state.productsInCart.find(
         (item) => item.id === action.payload.id,
       )
+
       state.products = state.products.filter(
         (cartItem) => cartItem.id !== action.payload.id,
       )
@@ -67,7 +73,7 @@ export const {
   setProductPending,
   setProductSuccess,
   setProductFailure,
-  increaseProductAmount,
+  increaseAmount,
   decreaseAmount,
   deleteProduct,
 } = ProductListSlice.actions
