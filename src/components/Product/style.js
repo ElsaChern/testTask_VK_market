@@ -1,5 +1,13 @@
 import styled from "@emotion/styled"
-import { Box, Card, CardMedia, Typography } from "@mui/material"
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Card,
+  CardMedia,
+  Typography,
+} from "@mui/material"
+import { hover } from "@testing-library/user-event/dist/hover"
 
 const ProductCard = styled(Card)(({ theme }) => ({
   display: "flex",
@@ -36,7 +44,6 @@ const ProductCounter = styled(Box)({
   display: "flex",
   width: "85px",
   height: "25px",
-  backgroundColor: "#ffffff",
   borderRadius: "4px",
   justifyContent: "space-between",
   padding: "0 2px",
@@ -44,4 +51,26 @@ const ProductCounter = styled(Box)({
   color: "black",
 })
 
-export { ProductCard, CartImg, ProductInfo, Description, ProductCounter }
+const CounterGroup = styled(ButtonGroup)({
+  border: "1px solid black",
+})
+
+const CounterButton = styled(Button)({
+  backgroundColor: "#ffffff",
+  ":disabled": {
+    color: "#ffffff",
+  },
+  ":hover": {
+    backgroundColor: "#ffffff",
+  },
+})
+
+export {
+  ProductCard,
+  CartImg,
+  ProductInfo,
+  Description,
+  CounterGroup,
+  CounterButton,
+  ProductCounter,
+}
