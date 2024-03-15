@@ -9,15 +9,33 @@ const TotalWrapper = styled(Card)({
   flexDirection: "column",
 })
 
-const CheckedProducts = styled(Box)({
+const CheckedProductsWrapper = styled(Box)({
   display: "flex",
   flexDirection: "column",
   gap: "10px",
-  margin: "10px",
+  margin: "10px 0",
+})
+
+const CheckedProducts = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+  gap: "5px",
+  borderBottom: "1px solid #f2f3f4",
+})
+
+const CheckedProductsTitle = styled(Typography)({
+  fontSize: "13px",
+  width: "170px",
 })
 
 const CheckedProductsText = styled(Typography)({
   fontSize: "14px",
 })
 
-export { TotalWrapper, CheckedProducts, CheckedProductsText }
+export {
+  TotalWrapper,
+  CheckedProductsWrapper,
+  CheckedProducts,
+  CheckedProductsText,
+  CheckedProductsTitle,
+}

@@ -1,27 +1,38 @@
-import { Typography } from "@mui/material"
-import { CheckedProducts, CheckedProductsText, TotalWrapper } from "./styles"
+import { Box, Typography } from "@mui/material"
+import {
+  CheckedProducts,
+  CheckedProductsText,
+  CheckedProductsTitle,
+  CheckedProductsWrapper,
+  TotalWrapper,
+} from "./styles"
 import { useSelector } from "react-redux"
 
 const Total = () => {
-  const { productsInCart, totalPrice } = useSelector((state) => state.cart)
+  const { productsInCart, totalPrice } = useSelector((state) => state.products)
 
   return (
     <TotalWrapper>
-      <Typography variant="subtitle1">
-        Итого: {totalPrice.toFixed(2)} руб.
+      <Typography variant="h6">
+        Итого: {Math.abs(totalPrice.toFixed(2))} руб.
       </Typography>
-      <CheckedProducts>
+      <CheckedProductsWrapper>
         {productsInCart.map((product) => {
           if (product.quantity !== 0) {
             return (
-              <CheckedProductsText key={product.id}>
-                &#10003; {product.title.slice(0, 15)} {product.quantity} шт.
-                {(product.price * product.quantity).toFixed(2)} руб.
-              </CheckedProductsText>
+              <CheckedProducts key={product.id}>
+                <CheckedProductsTitle>{product.title}</CheckedProductsTitle>
+                <CheckedProductsText>
+                  {product.quantity} шт.
+                </CheckedProductsText>
+                <CheckedProductsText>
+                  {(product.price * product.quantity).toFixed(2)} руб.
+                </CheckedProductsText>
+              </CheckedProducts>
             )
           }
         })}
-      </CheckedProducts>
+      </CheckedProductsWrapper>
     </TotalWrapper>
   )
 }
