@@ -12,21 +12,19 @@ import {
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import {
-  addProduct,
   decreaseAmount,
   deleteProduct,
-  increaseAmount,
-} from "../../store/slices/Cart"
+  increaseProductAmount,
+} from "../../store/slices/ProductListSlice"
 
 const Product = ({ product }) => {
   const dispatch = useDispatch()
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(1)
 
   const handleIncrement = () => {
     setCounter(counter + 1)
-    counter === 0
-      ? dispatch(addProduct(product))
-      : dispatch(increaseAmount(product))
+
+    dispatch(increaseProductAmount(product))
   }
 
   const handleDecrement = () => {
@@ -36,7 +34,6 @@ const Product = ({ product }) => {
 
   const handleDelete = () => {
     dispatch(deleteProduct(product))
-    setCounter(0)
   }
 
   return (
@@ -61,7 +58,7 @@ const Product = ({ product }) => {
           variant="contained"
           aria-label="Small button group"
         >
-          <CounterButton disabled={counter === 0} onClick={handleDecrement}>
+          <CounterButton disabled={counter === 1} onClick={handleDecrement}>
             -
           </CounterButton>
           <CounterButton disabled>{counter}</CounterButton>
